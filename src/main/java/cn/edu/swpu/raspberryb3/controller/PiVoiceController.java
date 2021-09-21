@@ -59,6 +59,11 @@ public class PiVoiceController {
         piBaseService.turnOffBuzzer();
     }
 
+    @RequestMapping(value = "/sample", method = RequestMethod.GET)
+    private String sample() {
+        return "sample !";
+    }
+
 
 
 
