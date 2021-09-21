@@ -42,7 +42,6 @@ public class PiVoiceServiceImpl implements PiVoiceService {
         voiceSenser.addListener(new GpioPinListenerDigital() {
             @Override
             public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-                log.info(event.getPin()+ " : " + event.getState());
                 if(PinState.LOW.equals(event.getState())) {
                     piBaseService.turnOnSecond();
                     try {

@@ -48,7 +48,6 @@ public class PiGasServiceImpl implements PiGasService{
         digitalInput.addListener(new GpioPinListenerDigital() {
             @Override
             public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-                log.info("[气体传感器] 感受到异常，已经发送短信，注意安全！ GasPinState={}",event.getState());
                 piBaseService.turnOnBuzzer();
                 piBaseService.turnOnFirst();
                 SmsSender.sendSms(to);
