@@ -2,7 +2,6 @@ package cn.edu.swpu.raspberryb3.service.impl;
 
 import cn.edu.swpu.raspberryb3.dao.DHMessageMapper;
 import cn.edu.swpu.raspberryb3.entitys.DHMessage;
-import cn.edu.swpu.raspberryb3.sensor.DHT11;
 import cn.edu.swpu.raspberryb3.service.DHMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +16,6 @@ class DHMessageServiceImpl implements DHMessageService {
     private DHMessageMapper dhMessageMapper;
 
     private static AtomicInteger atomicInteger = new AtomicInteger();
-
-    @Autowired
-    private DHT11 dht11;
 
     /**
      * 获取采集的温度数据
