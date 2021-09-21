@@ -64,7 +64,6 @@ public class PiVoiceController {
 
     @RequestMapping(value = "/sample", method = RequestMethod.GET)
     private String sample() {
-        System.out.println("sample ");
         return "sample !";
     }
 
