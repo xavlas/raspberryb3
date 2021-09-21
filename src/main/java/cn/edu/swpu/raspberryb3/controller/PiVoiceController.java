@@ -2,6 +2,7 @@ package cn.edu.swpu.raspberryb3.controller;
 
 import cn.edu.swpu.raspberryb3.service.PiBaseService;
 import cn.edu.swpu.raspberryb3.service.PiVoiceService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,9 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/raspberry3")
+@Slf4j
 public class PiVoiceController {
 
     @Autowired
@@ -61,6 +64,7 @@ public class PiVoiceController {
 
     @RequestMapping(value = "/sample", method = RequestMethod.GET)
     private String sample() {
+        System.out.println("sample ");
         return "sample !";
     }
 
