@@ -37,7 +37,7 @@ public class PiVoiceController {
 
     @RequestMapping(value = "/turnOnFirst", method = RequestMethod.GET)
     private void turnOnFirst() {
-      piBaseService.turnOnFirst();
+        piBaseService.turnOnFirst();
     }
 
     @RequestMapping(value = "/turnOnSecond", method = RequestMethod.GET)
@@ -79,13 +79,12 @@ public class PiVoiceController {
         final GpioController gpio = GpioFactory.getInstance();
 
 
-
         // provision gpio pin #02
         final GpioPinDigitalOutput led1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);
 
         // continuously blink the led every 1/2 second for 15 seconds
         led1.high();
-
+        System.out.println("GPIO 1 HIGH");
         gpio.shutdown();
         gpio.unprovisionPin(led1);
     }
@@ -97,16 +96,15 @@ public class PiVoiceController {
         final GpioController gpio = GpioFactory.getInstance();
 
 
-
         // provision gpio pin #02
         final GpioPinDigitalOutput led1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);
 
         // continuously blink the led every 1/2 second for 15 seconds
         led1.low();
+        System.out.println("GPIO 1 LOW");
         gpio.shutdown();
         gpio.unprovisionPin(led1);
     }
-
 
 
 }
