@@ -90,7 +90,22 @@ public class PiVoiceController {
         gpio.unprovisionPin(led2);
     }
 
+    @RequestMapping(value = "/switchOff", method = RequestMethod.GET)
+    private void switchOff() {
 
+        // create gpio controller
+        final GpioController gpio = GpioFactory.getInstance();
+
+
+
+        // provision gpio pin #02
+        final GpioPinDigitalOutput led2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);
+
+        // continuously blink the led every 1/2 second for 15 seconds
+
+        gpio.shutdown();
+        gpio.unprovisionPin(led2);
+    }
 
 
 
