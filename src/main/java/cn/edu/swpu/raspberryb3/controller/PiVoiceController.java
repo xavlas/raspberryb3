@@ -2,6 +2,10 @@ package cn.edu.swpu.raspberryb3.controller;
 
 import cn.edu.swpu.raspberryb3.service.PiBaseService;
 import cn.edu.swpu.raspberryb3.service.PiVoiceService;
+import com.pi4j.io.gpio.GpioController;
+import com.pi4j.io.gpio.GpioFactory;
+import com.pi4j.io.gpio.GpioPinDigitalOutput;
+import com.pi4j.io.gpio.RaspiPin;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,7 +68,21 @@ public class PiVoiceController {
 
     @RequestMapping(value = "/sample", method = RequestMethod.GET)
     private String sample() {
+
         return "sample !";
+    }
+
+    @RequestMapping(value = "/switchOn", method = RequestMethod.GET)
+    private void switchOn() {
+
+        // create gpio controller
+        final GpioController gpio = GpioFactory.getInstance();
+
+        // provision gpio pin #02
+        final GpioPinDigitalOutput led2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);
+
+        // continuously blink the led every 1/2 second for 15 seconds
+        led2.blink(500, 15000);
     }
 
 
