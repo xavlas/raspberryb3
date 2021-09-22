@@ -78,11 +78,16 @@ public class PiVoiceController {
         // create gpio controller
         final GpioController gpio = GpioFactory.getInstance();
 
+
+
         // provision gpio pin #02
         final GpioPinDigitalOutput led2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);
 
         // continuously blink the led every 1/2 second for 15 seconds
         led2.blink(500, 15000);
+
+        gpio.shutdown();
+        gpio.unprovisionPin(led2);
     }
 
 
