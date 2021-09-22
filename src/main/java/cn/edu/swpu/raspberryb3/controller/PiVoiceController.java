@@ -99,12 +99,12 @@ public class PiVoiceController {
 
 
         // provision gpio pin #02
-        final GpioPinDigitalOutput led2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);
+        final GpioPinDigitalOutput led1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);
 
         // continuously blink the led every 1/2 second for 15 seconds
-        led2.low();
+        led1.low();
         gpio.shutdown();
-        gpio.unprovisionPin(led2);
+        gpio.unprovisionPin(led1);
     }
 
 
