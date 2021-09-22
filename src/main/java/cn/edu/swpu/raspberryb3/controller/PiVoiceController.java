@@ -80,13 +80,13 @@ public class PiVoiceController {
 
 
         // provision gpio pin #02
-        final GpioPinDigitalOutput led1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);
+        final GpioPinDigitalOutput led2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);
 
         // continuously blink the led every 1/2 second for 15 seconds
-        led1.high();
-        System.out.println("GPIO 1 HIGH");
+        led2.high();
+        System.out.println("GPIO 2 HIGH");
         gpio.shutdown();
-        gpio.unprovisionPin(led1);
+        gpio.unprovisionPin(led2);
     }
 
     @RequestMapping(value = "/switchOff", method = RequestMethod.GET)
@@ -97,13 +97,13 @@ public class PiVoiceController {
 
 
         // provision gpio pin #02
-        final GpioPinDigitalOutput led1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);
+        final GpioPinDigitalOutput led2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02);
 
         // continuously blink the led every 1/2 second for 15 seconds
-        led1.low();
-        System.out.println("GPIO 1 LOW");
+        led2.low();
+        System.out.println("GPIO 2 LOW");
         gpio.shutdown();
-        gpio.unprovisionPin(led1);
+        gpio.unprovisionPin(led2);
     }
 
 
